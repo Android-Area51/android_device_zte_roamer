@@ -29,8 +29,8 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x0dc00000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0a280000
 BOARD_FLASH_BLOCK_SIZE := 0x00020000
 
-TARGET_PREBUILT_KERNEL := device/zte/roamer/kernel
-TARGET_RECOVERY_INITRC := device/zte/roamer/recovery/init.rc
+TARGET_PREBUILT_KERNEL := device/zte/roamer/recovery_kernel
+TARGET_RECOVERY_INITRC := device/zte/roamer/recovery/etc/init.rc
 
 BOARD_DATA_DEVICE := /dev/block/mtdblock6
 BOARD_DATA_FILESYSTEM := auto

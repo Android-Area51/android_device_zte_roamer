@@ -1,3 +1,8 @@
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT_CPU := cortex-a5
+TARGET_CPU_VARIANT := cortex-a5
+TARGET_ARCH_VARIANT := armv6-vfp
+
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version

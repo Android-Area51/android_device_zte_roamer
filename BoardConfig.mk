@@ -42,7 +42,7 @@ BOARD_CACHE_DEVICE := /dev/block/mtdblock4
 BOARD_CACHE_FILESYSTEM := auto
 BOARD_CACHE_FILESYSTEM_OPTIONS := rw
 
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/zte/roamer/recovery/recovery_ui.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/zte/aviva/recovery/recovery_keys.c
 
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun

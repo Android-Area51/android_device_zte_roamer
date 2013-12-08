@@ -54,8 +54,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
+    device/zte/roamer/config/ueventd.qcom.rc:root/ueventd.qcom.rc \
     device/zte/roamer/recovery/sbin/recovery.sh:/root/sbin/recovery.sh\
     device/zte/roamer/recovery/sbin/usbconfig:/root/sbin/usbconfig\
     device/zte/roamer/recovery/etc/usb.conf:/root/usb.conf
+
+# Recovery
+PRODUCT_COPY_FILES += \
+    device/zte/roamer/recovery.fstab:recovery/root/etc/recovery.fstab
 
 $(call inherit-product-if-exists, vendor/zte/roamer/roamer-vendor.mk)

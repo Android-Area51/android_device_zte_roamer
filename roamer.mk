@@ -48,8 +48,12 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.allow.mock.location=1 \
     ro.debuggable=1
 
+LOCAL_KERNEL := device/zte/roamer/kernel
+
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel\
+    $(LOCAL_KERNEL):kernel
+
+PRODUCT_COPY_FILES += \
     device/zte/roamer/recovery/sbin/recovery.sh:/root/sbin/recovery.sh\
     device/zte/roamer/recovery/sbin/usbconfig:/root/sbin/usbconfig\
     device/zte/roamer/recovery/etc/usb.conf:/root/usb.conf

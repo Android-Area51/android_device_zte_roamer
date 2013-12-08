@@ -22,3 +22,4 @@
 
 add_lunch_combo full_roamer-eng
 add_lunch_combo full_roamer-userdebug
+add_lunch_combo arearom_roamer-userdebug

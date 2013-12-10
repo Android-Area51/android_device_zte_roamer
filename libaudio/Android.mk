@@ -1,4 +1,4 @@
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),blade)
+MODULE.TARGET.SHARED_LIBRARIES.libaudiopolicy :=
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
@@ -17,12 +17,17 @@ LOCAL_MODULE:= libaudiopolicy
 
 ifeq ($(BOARD_HAVE_BLUETOOTH),true)
   LOCAL_CFLAGS += -DWITH_A2DP
+  LOCAL_SHARED_LIBRARIES += liba2dp libbinder
 endif
 
 include $(BUILD_SHARED_LIBRARY)
 
 
 include $(CLEAR_VARS)
+
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),blade)
+
+MODULE.TARGET.SHARED_LIBRARIES.libaudio :=
 
 LOCAL_MODULE := libaudio
 

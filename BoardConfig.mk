@@ -1,7 +1,8 @@
 TARGET_ARCH := arm
-#TARGET_ARCH_VARIANT_CPU := cortex-a5
-#TARGET_CPU_VARIANT := cortex-a5
 TARGET_ARCH_VARIANT := armv6-vfp
+
+TARGET_CPU_ABI := armeabi-v6l
+TARGET_CPU_ABI2 := armeabi
 
 TARGET_BOARD_PLATFORM := msm7k
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
@@ -9,14 +10,8 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_NO_SECURE_PLAYBACK
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DSAMSUNG_CAMERA_QCOM
 
-USE_CAMERA_STUB := true
-
-# inherit from the proprietary version
--include vendor/zte/roamer/BoardConfigVendor.mk
-
 TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := roamer
-TARGET_CPU_ABI := armeabi
+TARGET_NO_RADIOIMAGE := true
 TARGET_BOOTLOADER_BOARD_NAME := roamer
 
 #WiFI related definitions
@@ -24,12 +19,31 @@ BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
 WPA_SUPPLICANT_VERSION           := VER_0_6_X
 BOARD_WLAN_DEVICE                := BCM4319
 WIFI_BAND                        := 802_11_ABG
-WIFI_DRIVER_MODULE_PATH          := "/lib/modules/dhd.ko"
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
 WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcm4319.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_MODULE_NAME          := "dhd"
 WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0 firmware_path=/vendor/firmware/fw_bcm4319.bin nvram_path=/vendor/firmware/nv4319.txt"
 
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
+
+# Qcom bits
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QCOM_LIBS := true
+BOARD_VENDOR_QCOM_AMSS_VERSION := 6225
+
+BOARD_USES_QCOM_GPS := true
+BOARD_USES_QCOM_LIBRPC := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := roamer
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
+
+TARGET_PROVIDES_LIBAUDIO := true
+
+TARGET_PROVIDES_INITRC := true
+
+# Recovery and kernel
 BOARD_KERNEL_CMDLINE := 
 BOARD_KERNEL_BASE := 0x02600000
 BOARD_PAGE_SIZE := 0x00000800
@@ -66,3 +80,6 @@ TW_INTERNAL_STORAGE_PATH := "/sdcard"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 TW_MAX_BRIGHTNESS := 255
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+
+# inherit from the proprietary version
+-include vendor/zte/roamer/BoardConfigVendor.mk

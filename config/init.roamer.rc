@@ -67,15 +67,7 @@ on boot
 
     #ZTE_USB_wangtao_001 20100315 +++++++  
     chown system system /sys/devices/platform/msm_hsusb_periphera/composition
-		
-    # Create the directories used by the Wireless subsystem
-    #mkdir /data/misc/wifi 0770 wifi wifi
-    #mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    #mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
-    #mkdir /data/misc/dhcp 0770 dhcp dhcp
-    #chown dhcp dhcp /data/misc/dhcp
-    #symlink /persist/qcom_wlan_nv.bin /etc/firmware/wlan/qcom_wlan_nv.bin
-    
+		    
      # Create directories for wiper services
     mkdir /data/wpstiles/ 0775 shell             #CTS_R10_LPZ_20111214
     mkdir /etc/wiper 0775 location qcom_oncrpc
@@ -175,19 +167,6 @@ service netmgrd /system/bin/netmgrd -E
 on property:ro.use_data_netmgrd=true
     start netmgrd
 
-#service btwlancoex /system/bin/sh /system/etc/init.qcom.coex.sh
-#    user root
-#    group qcom_oncrpc bluetooth net_bt_admin
-#    disabled
-#    oneshot
-
-#service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf -dd
-#    user root
-#    group wifi inet
-#    socket wpa_wlan0 dgram 660 wifi wifi
-#    disabled
-#    oneshot
-
 service btld /system/bin/logwrapper /system/bin/btld -lpm 1 -hb 3000000
     user root
     group bluetooth net_bt_admin
@@ -201,20 +180,6 @@ on property:service.brcm.bt.soft_onoff=1
 # stop btld if soft_onoff is disabled
 on property:service.brcm.bt.soft_onoff=0
     stop btld
-
-## ZTE_BT_XUM_20110505
-##STOPSHIP: Remove logwrapper and -d option before production
-#service bluetoothd /system/bin/logwrapper /system/bin/bluetoothd -d -n
-#    socket bluetooth stream 660 bluetooth bluetooth
-#   socket dbus_bluetooth stream 660 bluetooth bluetooth
-## init.rc does not yet support applying capabilities, so run as root and
-## let bluetoothd drop uid to bluetooth with the right linux capabilities
-#    group bluetooth net_bt_admin misc
-#    disabled
-
-#service dhcpcd /system/bin/dhcpcd -BKL wlan0
-#    disabled
-#    oneshot
 
 service wiperiface /system/bin/wiperiface
     user location
@@ -251,6 +216,7 @@ service getlog /system/bin/getlogtofile
 #ZTE_JCD_INITCONFIG,begin
 service usbconfig /sbin/usbconfig
     oneshot
+
 service dhcp-service /system/bin/netcfg wlan0 dhcp
         oneshot
 
@@ -264,25 +230,12 @@ on property:persist.sys.charging.disable=1
 on property:persist.sys.charging.disable=0
     write /sys/module/msm_battery/parameters/usb_chg_enable 1
 
-#ZTE_ZBS_20110107 +++
-#service hostapd /system/bin/hostapd /data/misc/wifi/hostapd.conf
-#    socket hostapd_wlap0 dgram 660 root wifi
-#    user root
-#    group wifi
-#    oneshot
-#    disabled
-#ZTE_ZBS_20110107 ---
-#ZTE_JCD_INITCONFIG,end
-
 #ZTE_wantao_TESTMODE_001 20100416 +++
 service bttestmode /system/bin/sh /system/bin/bt_testmode.sh
     user root
     oneshot
     disabled    
 #ZTE_wangtao_TESTMODE_001 20100416 ---
-
-service ckpd /system/bin/CKPD-daemon
-    onrestart /system/bin/log -t RIL-CKPD -p w "CKPD daemon restarted"
 
 #ZTE_HWY_Deblock 20101022
 service deblock /system/bin/sh /system/bin/em_deblock.sh

@@ -37,8 +37,7 @@
 /dev/pmem_audio           0660   system     audio
 /dev/pmem_adsp*           0660   system     audio
 /dev/pmem_camera*         0660   system     camera
-#/dev/oncrpc/*             0660   root       system
-/dev/oncrpc/*             0666   root       qcom_oncrpc
+/dev/oncrpc/*             0660   root       qcom_oncrpc
 /dev/adsp/*               0660   system     audio
 /dev/snd/*                0660   system     audio
 /dev/mt9t013              0660   system     system
@@ -103,4 +102,14 @@
 /dev/msm_evrc_in          0660  system       audio
 
 /sys/devices/virtual/usb_composite/*   enable      0664  root   system
+
+# TTY nodes
+/dev/ttyCSD0              0660   radio      radio
+/dev/ttySMD0              0660   radio      radio
+/dev/ttyGPS0              0660   system     system
+/dev/ttyGS0               0660   system     system
+/dev/ttyXTRA0             0660   system     system
+/dev/ttyEFS0              0660   system     system
+/dev/ttyCIQ00             0660   system     system
+/dev/ttyCIQ10             0660   system     system
 

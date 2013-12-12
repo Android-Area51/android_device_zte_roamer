@@ -20,10 +20,10 @@ WPA_SUPPLICANT_VERSION           := VER_0_6_X
 BOARD_WLAN_DEVICE                := BCM4319
 WIFI_BAND                        := 802_11_ABG
 WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcm4319.bin"
-WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcm4319_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA          := "/system/etc/fw_bcm4319.bin"
+WIFI_DRIVER_FW_PATH_AP           := "/system/etc/fw_bcm4319_apsta.bin"
 WIFI_DRIVER_MODULE_NAME          := "dhd"
-WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0 firmware_path=/vendor/firmware/fw_bcm4319.bin nvram_path=/vendor/firmware/nv4319.txt"
+WIFI_DRIVER_MODULE_ARG           := "iface_name=wlan0 firmware_path=/system/etc/fw_bcm4319.bin nvram_path=/system/etc/nv_4319.txt"
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -38,6 +38,9 @@ BOARD_USES_QCOM_GPS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := roamer
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 3200
+
+BOARD_USES_LEGACY_RIL := true
+TARGET_PROVIDES_LIBRIL := true
 
 TARGET_PROVIDES_LIBAUDIO := true
 

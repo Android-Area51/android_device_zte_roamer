@@ -11,6 +11,9 @@ TARGET_BOARD_PLATFORM_GPU := qcom
 
 BOARD_EGL_CFG := device/zte/roamer/config/egl.cfg
 
+# for using stock kernel vmsplit configuration (for stability)
+TARGET_USES_2G_VM_SPLIT := true
+
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_NO_SECURE_PLAYBACK
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
 

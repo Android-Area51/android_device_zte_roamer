@@ -2,9 +2,6 @@
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, device/zte/roamer/full_roamer.mk)
 
-# Specify phone tech before including full_phone
-$(call inherit-product, vendor/arearom/products/gsm.mk)
-
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/arearom/products/common_full.mk)
 

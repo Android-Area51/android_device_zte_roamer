@@ -66,6 +66,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/modules/reset_modem.ko:system/lib/modules/reset_modem.ko \
     $(LOCAL_PATH)/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/etc/01_qcomm_omx.cfg:system/etc/01_qcomm_omx.cfg
 
 PRODUCT_PACKAGES += \
     camera.msm7k \

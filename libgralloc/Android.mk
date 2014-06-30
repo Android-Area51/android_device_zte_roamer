@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),blade)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),roamer)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -33,7 +33,7 @@ LOCAL_SRC_FILES := 	\
 
 LOCAL_MODULE_TAGS := optional
 	
-LOCAL_MODULE := gralloc.$(TARGET_BOOTLOADER_BOARD_NAME)
+LOCAL_MODULE := gralloc.msm7k
 LOCAL_CFLAGS:= -DLOG_TAG=\"$(TARGET_BOOTLOADER_BOARD_NAME).gralloc\"
 
 #ifneq (, $(filter msm7625_ffa msm7625_surf msm7627_ffa msm7627_surf msm7627_7x_ffa msm7627_7x_surf, $(QCOM_TARGET_PRODUCT)))

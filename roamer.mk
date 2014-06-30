@@ -91,6 +91,10 @@ PRODUCT_PACKAGES += \
     hcitool \
     libaudioutils
 
+# Use SIMtoolkit
+PRODUCT_PACKAGES += \
+    Stk
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
 

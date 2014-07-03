@@ -1,3 +1,5 @@
+TARGET_SPECIFIC_HEADER_PATH := device/zte/roamer/include
+
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv6-vfp
 

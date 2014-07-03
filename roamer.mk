@@ -71,8 +71,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     camera.msm7k \
-    copybit.msm7k \
-    gralloc.msm7k \
+    copybit.roamer \
+    gralloc.roamer \
     hwcomposer.msm7k \
     gps.msm7k \
     audio.primary.msm7k \
@@ -110,7 +110,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.rc:root/init.rc \
+    #$(LOCAL_PATH)/init.rc:root/init.rc \
     $(LOCAL_PATH)/config/init.roamer.rc:root/init.roamer.rc \
     $(LOCAL_PATH)/prebuilt/logo.bmp:root/logo.bmp \
     $(LOCAL_PATH)/config/init.qcom.rc:root/init.qcom.rc

@@ -110,7 +110,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-    #$(LOCAL_PATH)/init.rc:root/init.rc \
     $(LOCAL_PATH)/config/init.roamer.rc:root/init.roamer.rc \
     $(LOCAL_PATH)/prebuilt/logo.bmp:root/logo.bmp \
     $(LOCAL_PATH)/config/init.qcom.rc:root/init.qcom.rc

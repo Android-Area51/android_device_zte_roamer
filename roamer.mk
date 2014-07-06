@@ -99,7 +99,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
 
 # For userdebug builds
-ADDITIONAL_DEFAULT_PROPERTIES += \
+#ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
     ro.allow.mock.location=1 \
     ro.debuggable=1
